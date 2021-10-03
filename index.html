@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+<style>
+    .container {
+        margin: 50px auto !important;
+    }
+    .list-items {
+        position: relative;
+        height: 200px;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .list-items:hover {
+        cursor: pointer;
+    }
+    .list-items__img {
+        width: 40%;
+    }
+    .list-items__name {
+        position: absolute;
+        font-size: 16px;
+        color: #000;
+        bottom: 20px;
+    }
+
+</style>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="header__navbar grid wide">
+                <div class="header__navbar-item">
+                    <i class="navbar__icon fas fa-user-graduate"></i>
+                    <h2 class="navbar__heading">HỆ THỐNG QUẢN LÝ</h2>
+                </div>
+                <div class="header__navbar-item">
+                    <h1 class="navbar__name">TRƯỜNG TRUNG HỌC PHỔ THÔNG AN BIÊN</h1>
+                </div>
+                <div class="header__navbar-item">
+                    <div class="navbar__menu">
+                        <button class="navbar__menu-btn navbar__menu-btn--out">
+                            <i class="navbar__menu-icon  fas fa-sign-out-alt"></i>
+                            Thoát
+                        </button>
+                        <a href="">
+                            <button class="navbar__menu-btn navbar__menu-btn--home">
+                                <i class="navbar__menu-icon fas fa-home"></i>
+                                Trang chủ
+                            </button>
+                        </a>
+                        <span class="navbar__menu-user">Chung Phát Tiến</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container grid wide">
+            <div class="container__list row">
+                <a href="#" class="list-items col c-6 m-6 l-3">
+                    <img class="list-items__img" src="https://png.pngtree.com/png-vector/20190826/ourlarge/pngtree-group-png-image_1696838.jpg" alt="">
+                    <span class="list-items__name">Phân quyền hệ thống</span>
+                </a>
+                <a href="#" class="list-items col c-6 m-6 l-3">
+                    <img src="https://file1.hutech.edu.vn/file/news/tkb_thpt_ngoc_lac-1561459088.png" alt="" class="list-items__img">
+                    <span class="list-items__name">Lập thời khóa biểu</span>
+                </a>
+                <a href="#" class="list-items col c-6 m-6 l-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY6T5htDyBSTHc83FVX_Cz0Kix3NdAq1DYdQ&usqp=CAU" alt="" class="list-items__img">
+                    <span class="list-items__name">Phân công giảng dạy</span>
+                </a>
+                <a href="#" class="list-items col c-6 m-6 l-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxcRniAQjyFSm_2nFTrnD-8ogMdjjIsduJHQ&usqp=CAU" alt="" class="list-items__img">
+                    <span class="list-items__name">Xem danh sách lớp</span>
+                </a>
+                <a href="#" class="list-items col c-6 m-6 l-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ6AnHuwZv2vdOYNvei4H1NMKVnRAfAkKzrA&usqp=CAU" alt="" class="list-items__img">
+                    <span class="list-items__name">Cập nhật danh sách học sinh</span>
+                </a>
+                <a href="#" class="list-items col c-6 m-6 l-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd4jXaoViq4KcParFZ4I-er_OhpntpGLNDgA&usqp=CAU" alt="" class="list-items__img">
+                    <span class="list-items__name">Đánh giá hành kiểm</span>
+                </a>
+                <a href="#" class="list-items col c-6 m-6 l-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScHFjKkra-yY3Cr6FpJENDILnEo237MbK0yg&usqp=CAU" alt="" class="list-items__img">
+                    <span class="list-items__name">Cập nhật điểm số</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Trường Trung Học Phổ Thông An Biên</p>
+            <p>Địa chỉ: Khu vực 1 - Thị Trấn Thứ Ba - H. An Biên - T. Kiên Giang</p>
+            <p>Điện thoại: 000000000  ; Email thptanbien@edu.vn</p>
+        </div>
+    </div>
+
+    <script src="./validation.js"></script>
+    <script src="./main.js"></script>
+    <script>
+    </script>
+</body>
+</html>
