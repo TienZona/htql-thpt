@@ -13,30 +13,61 @@
     <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 <style>
-    .container {
-        margin: 50px auto !important;
+    table {
+        margin: 0 40px;
+        border: 2px solid rgb(247, 7, 247);
     }
-    .list-items {
-        position: relative;
-        height: 200px;
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .list-items:hover {
-        cursor: pointer;
-    }
-    .list-items__img {
-        width: 40%;
-    }
-    .list-items__name {
-        position: absolute;
+    .users__infor-name {    
+        width: 200px;
+        background-image: linear-gradient(90deg, rgb(81, 117, 235), rgb(12, 162, 248));
         font-size: 16px;
-        color: #000;
-        bottom: 20px;
+        color: #fff;
+        padding: 10px;
     }
-
+    .users__infor-position {
+        font-size: 14px;
+        color: #000;
+        padding: 10px;
+    }
+    .decen__list-users {
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    .users__img {
+        width: 100px;
+    }   
+    .users__label {
+        font-size: 20px;
+    }
+    .users__control {
+        padding: 6px 12px;
+        margin: 12px 0;
+        border: 1px solid rgb(1, 141, 196);
+        border-radius: 3px;
+    }
+    /* .users__edit {
+        display: flex;
+        justify-content: center;
+    } */
+    .users__edt-btn {
+        width: 50px;
+        height: 24px;
+        margin-left: 15px;
+        border: none;
+        background-color: rgb(110, 12, 105);
+        border-radius: 4px;
+        color: #fff;
+        font-size: 16px;
+    }
+    .users__edt-btn:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+    .container__decen {
+        display: flex;
+        justify-content: center;
+    }
 </style>
 <body>
     <div class="main">
@@ -51,27 +82,25 @@
                 </div>
                 <div class="header__navbar-item">
                     <div class="navbar__menu">
-                        <button class="navbar__menu-btn navbar__menu-btn--out">
+                        <button class="navbar__menu-btn navbar__menu-btn--out display--none">
                             <i class="navbar__menu-icon  fas fa-sign-out-alt"></i>
                             Thoát
                         </button>
-                        <a href="">
-                            <button class="navbar__menu-btn navbar__menu-btn--home">
-                                <i class="navbar__menu-icon fas fa-home"></i>
-                                Trang chủ
-                            </button>
-                        </a>
-                        <span class="navbar__menu-user">Chung Phát Tiến</span>
+                        <button class="navbar__menu-btn navbar__menu-btn--home display--none">
+                            <i class="navbar__menu-icon fas fa-home"></i>
+                            Trang chủ
+                        </button>
+                        <span class="navbar__menu-user display--none">Chung Phát Tiến</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container grid wide">
-            <div class="container__list row">
-                <a href="#" class="list-items col c-6 m-6 l-3">
+            <div class="container__list row display--none">
+                <div id="list-items--decen" class="list-items col c-6 m-6 l-3">
                     <img class="list-items__img" src="https://png.pngtree.com/png-vector/20190826/ourlarge/pngtree-group-png-image_1696838.jpg" alt="">
                     <span class="list-items__name">Phân quyền hệ thống</span>
-                </a>
+                </div>
                 <a href="#" class="list-items col c-6 m-6 l-3">
                     <img src="https://file1.hutech.edu.vn/file/news/tkb_thpt_ngoc_lac-1561459088.png" alt="" class="list-items__img">
                     <span class="list-items__name">Lập thời khóa biểu</span>
@@ -97,6 +126,51 @@
                     <span class="list-items__name">Cập nhật điểm số</span>
                 </a>
             </div>
+            <form action="" id="form" class="form" method="POST">
+                <div class="form__header">
+                    <h3>Đăng nhập</h3>
+                </div>
+                <div class="form__container">
+                    <p>Hệ thống quản lý - Trường THPT An Biên</p>    
+                    <div class="spacer"></div>
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">Tên đăng nhập</label>
+                        <input id="fullname" name="fullname"  type="text" placeholder="Tên đăng nhập" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">Mật khẩu </label>
+                        <input id="password" name="password" type="password" placeholder="Mật khẩu đăng nhập" class="form-control">
+                        <span class="form-message"></span>
+                    </div>
+                    <button class="form-submit">Đăng nhập</button>
+                </div>
+            </form>
+            <div id="container__decen" class="container__decen display--none">
+                <div class="decen__list">
+                    <!-- <div class="decen__list-users">
+                        <img class="users__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctA-NSI59h7c-JFVTUWhozUanBiB-rX0MMg&usqp=CAU" alt="">
+                        <table class="users__infor">
+                            <tr>
+                                <th class="users__infor-name">Chung Phát Tiến</th>
+                            </tr>
+                            <tr>
+                                <td class="users__infor-position">Chức vụ: </td>
+                            </tr>
+                        </table>
+                        <div class="users__edit">
+                            <label for="position" class="users__label">Chỉnh sửa: </label>
+                            <select name="position" id="position" class="users__control">
+                                <option value="">Lựa chọn chức vụ</option>
+                                <option value="Administrators">Administrators</option>
+                                <option value="teacher-subject">teacher-subject</option>
+                                <option value="teacher-homeroom">teacher-homeroom</option>
+                            </select>
+                            <button class="users__edt-btn">Lưu</button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
         </div>
         <div class="footer">
             <p>Trường Trung Học Phổ Thông An Biên</p>
@@ -108,6 +182,28 @@
     <script src="./validation.js"></script>
     <script src="./main.js"></script>
     <script>
+        const form = document.querySelector('#form');
+        display('.container__list',false);
+        display(form,false);
+        display('.container__decen',true);
+        renderDecen(accounts);
+        Validator({
+            form: '#form',
+            errorSelector: '.form-message',
+            formGroupSelector: '.form-group',
+            rules: [
+                Validator.isRequired('#fullname'),
+                Validator.isRequired('#password'),
+                Validator.isPassword('#password', 6)
+            ],
+            onSubmit: function(data){
+                if(checkAccount(data)){    
+                    logged(data);
+                }else {
+                    alert('Tên đăng nhập hoặc mật khẩu không hợp lệ');
+                }
+            }
+        })
     </script>
 </body>
 </html>
