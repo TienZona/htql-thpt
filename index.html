@@ -13,61 +13,6 @@
     <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 <style>
-    table {
-        margin: 0 40px;
-        border: 2px solid rgb(247, 7, 247);
-    }
-    .users__infor-name {    
-        width: 200px;
-        background-image: linear-gradient(90deg, rgb(81, 117, 235), rgb(12, 162, 248));
-        font-size: 16px;
-        color: #fff;
-        padding: 10px;
-    }
-    .users__infor-position {
-        font-size: 14px;
-        color: #000;
-        padding: 10px;
-    }
-    .decen__list-users {
-        display: flex;
-        align-items: center;
-        margin-bottom: 50px;
-    }
-    .users__img {
-        width: 100px;
-    }   
-    .users__label {
-        font-size: 20px;
-    }
-    .users__control {
-        padding: 6px 12px;
-        margin: 12px 0;
-        border: 1px solid rgb(1, 141, 196);
-        border-radius: 3px;
-    }
-    /* .users__edit {
-        display: flex;
-        justify-content: center;
-    } */
-    .users__edt-btn {
-        width: 50px;
-        height: 24px;
-        margin-left: 15px;
-        border: none;
-        background-color: rgb(110, 12, 105);
-        border-radius: 4px;
-        color: #fff;
-        font-size: 16px;
-    }
-    .users__edt-btn:hover {
-        cursor: pointer;
-        opacity: 0.8;
-    }
-    .container__decen {
-        display: flex;
-        justify-content: center;
-    }
 </style>
 <body>
     <div class="main">
@@ -97,34 +42,34 @@
         </div>
         <div class="container grid wide">
             <div class="container__list row display--none">
-                <div id="list-items--decen" class="list-items col c-6 m-6 l-3">
+                <div id="list-items--decen" class="list-items display--none col c-6 m-6 l-3">
                     <img class="list-items__img" src="https://png.pngtree.com/png-vector/20190826/ourlarge/pngtree-group-png-image_1696838.jpg" alt="">
                     <span class="list-items__name">Phân quyền hệ thống</span>
                 </div>
-                <a href="#" class="list-items col c-6 m-6 l-3">
+                <div id="list-items--schedule" class="list-items display--none col c-6 m-6 l-3">
                     <img src="https://file1.hutech.edu.vn/file/news/tkb_thpt_ngoc_lac-1561459088.png" alt="" class="list-items__img">
                     <span class="list-items__name">Lập thời khóa biểu</span>
-                </a>
-                <a href="#" class="list-items col c-6 m-6 l-3">
+                </div>
+                <div id="list-items--assigning" class="list-items display--none col c-6 m-6 l-3">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY6T5htDyBSTHc83FVX_Cz0Kix3NdAq1DYdQ&usqp=CAU" alt="" class="list-items__img">
                     <span class="list-items__name">Phân công giảng dạy</span>
-                </a>
-                <a href="#" class="list-items col c-6 m-6 l-3">
+                </div>
+                <div id="list-items--watch" class="list-items display--none col c-6 m-6 l-3">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxcRniAQjyFSm_2nFTrnD-8ogMdjjIsduJHQ&usqp=CAU" alt="" class="list-items__img">
                     <span class="list-items__name">Xem danh sách lớp</span>
-                </a>
-                <a href="#" class="list-items col c-6 m-6 l-3">
+                </div>
+                <div id="list-items--update" class="list-items display--none col c-6 m-6 l-3">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ6AnHuwZv2vdOYNvei4H1NMKVnRAfAkKzrA&usqp=CAU" alt="" class="list-items__img">
                     <span class="list-items__name">Cập nhật danh sách học sinh</span>
-                </a>
-                <a href="#" class="list-items col c-6 m-6 l-3">
+                </div>
+                <div id="list-items--votting" class="list-items display--none col c-6 m-6 l-3">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd4jXaoViq4KcParFZ4I-er_OhpntpGLNDgA&usqp=CAU" alt="" class="list-items__img">
                     <span class="list-items__name">Đánh giá hành kiểm</span>
-                </a>
-                <a href="#" class="list-items col c-6 m-6 l-3">
+                </div>
+                <div id="list-items--score" class="list-items display--none col c-6 m-6 l-3">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScHFjKkra-yY3Cr6FpJENDILnEo237MbK0yg&usqp=CAU" alt="" class="list-items__img">
                     <span class="list-items__name">Cập nhật điểm số</span>
-                </a>
+                </div>
             </div>
             <form action="" id="form" class="form" method="POST">
                 <div class="form__header">
@@ -148,32 +93,178 @@
             </form>
             <div id="container__decen" class="container__decen display--none">
                 <div class="decen__list">
-                    <!-- <div class="decen__list-users">
-                        <img class="users__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctA-NSI59h7c-JFVTUWhozUanBiB-rX0MMg&usqp=CAU" alt="">
-                        <table class="users__infor">
-                            <tr>
-                                <th class="users__infor-name">Chung Phát Tiến</th>
-                            </tr>
-                            <tr>
-                                <td class="users__infor-position">Chức vụ: </td>
-                            </tr>
-                        </table>
-                        <div class="users__edit">
-                            <label for="position" class="users__label">Chỉnh sửa: </label>
-                            <select name="position" id="position" class="users__control">
-                                <option value="">Lựa chọn chức vụ</option>
-                                <option value="Administrators">Administrators</option>
-                                <option value="teacher-subject">teacher-subject</option>
-                                <option value="teacher-homeroom">teacher-homeroom</option>
-                            </select>
-                            <button class="users__edt-btn">Lưu</button>
-                        </div>
-                    </div> -->
                 </div>
+            </div>
+            <div id="container__schedule" class="container__schedule display--none">
+                <div class="schedule__navbar">
+                    <div class="schedule__navbar-item schedule__navbar-level">
+                        <label for="level-class" class="schedule__navbar-item-lable label-level">Khối: </label>
+                        <select name="level-class" id="level-class" class="select-class">
+                            <option value="12">12</option>
+                            <option value="11">11</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <div class="schedule__navbar-item schedule__navbar-class">
+                        <label for="" class="schedule__navbar-item-lable select-class">Lớp: </label>
+                        <select name="class" id="class" class="class">
+                            <option value="12A1">12A1</option>
+                        </select>
+                    </div>
+                    <div class="schedule__navbar-item schedule__navbar-level">
+                        <label for="level-class" class="schedule__navbar-item-lable label-level">Năm học: </label>
+                        <select name="level-class" id="level-class" class="select-class">
+                            <option value="21">2020 - 2021</option>
+                            <option value="22">2021 - 2022</option>
+                            <option value="23">2022 - 2023</option>
+                        </select>
+                    </div>
+                    <button class="schedule__navbar-btn">Lưu</button>
+                </div>
+                <div class="schedule__container">
+                    <h1 class="schedule__heading">Buổi sáng</h1>
+                    <table class="table">
+                        <tr>
+                            <th class="table__day">Tiết</th>
+                            <th class="table__day">Thứ Hai</th>
+                            <th class="table__day">Thứ Ba</th>
+                            <th class="table__day">Thứ Tư</th>
+                            <th class="table__day">Thứ Năm</th>
+                            <th class="table__day">Thứ Sáu</th>
+                            <th class="table__day">Thứ Bảy</th>
+                            <th class="table__day">Chủ Nhật</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                    </table>
+
+                    <h1 class="schedule__heading">Buổi chiều</h1>
+                    <table class="table">
+                        <tr>
+                            <th class="table__day">Tiết</th>
+                            <th class="table__day">Thứ Hai</th>
+                            <th class="table__day">Thứ Ba</th>
+                            <th class="table__day">Thứ Tư</th>
+                            <th class="table__day">Thứ Năm</th>
+                            <th class="table__day">Thứ Sáu</th>
+                            <th class="table__day">Thứ Bảy</th>
+                            <th class="table__day">Chủ Nhật</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                    </table>
+                </div>
+                
             </div>
         </div>
         <div class="footer">
-            <p>Trường Trung Học Phổ Thông An Biên</p>
+            <p>Trường Trung Học Phổ tdông An Biên</p>
             <p>Địa chỉ: Khu vực 1 - Thị Trấn Thứ Ba - H. An Biên - T. Kiên Giang</p>
             <p>Điện thoại: 000000000  ; Email thptanbien@edu.vn</p>
         </div>
@@ -182,7 +273,9 @@
     <script src="./validation.js"></script>
     <script src="./main.js"></script>
     <script>
+// ------------------------------------------------------
         const form = document.querySelector('#form');
+
         Validator({
             form: '#form',
             errorSelector: '.form-message',

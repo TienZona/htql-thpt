@@ -169,3 +169,140 @@ color: #f33a58;
 .display--none {
     display: none !important;
 }
+.container__schedule {
+
+}
+.schedule__navbar {
+    display: flex;
+    justify-content: center;
+}
+.schedule__navbar-item {
+    height: 40px;
+    background-color: rgb(165, 126, 233);
+    border-radius: 3px;
+    margin: 0 30px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.schedule__navbar-item-lable {
+    font-size: 16px;
+    color: #fff;
+}
+.select-class {
+    padding: 3px 6px;
+    margin-left: 6px;
+    border-radius: 3px;
+}
+
+.decen__list-users > table {
+    margin: 0 40px;
+    border: 2px solid rgb(247, 7, 247);
+}
+.users__infor-name {    
+    width: 200px;
+    background-image: linear-gradient(90deg, rgb(81, 117, 235), rgb(12, 162, 248));
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+}
+.users__infor-position {
+    font-size: 14px;
+    color: #000;
+    padding: 10px;
+}
+.decen__list-users {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.users__img {
+    width: 100px;
+}   
+.users__label {
+    font-size: 20px;
+}
+.users__control {
+    padding: 6px 12px;
+    margin: 12px 0;
+    border: 1px solid rgb(1, 141, 196);
+    border-radius: 3px;
+}
+.users__edt-btn {
+    width: 50px;
+    height: 24px;
+    margin-left: 15px;
+    border: none;
+    background-color: rgb(110, 12, 105);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+}
+.users__edt-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+.container__decen {
+    display: flex;
+    justify-content: center;
+}
+.container__schedule {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.table th {
+    border: 1px solid #000;
+    padding: 6px;
+    font-size: 14px;
+    color: #000;
+    border-collapse: collapse;
+}
+.table td{
+    border: 1px solid #000;
+    padding: 3px;
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+    border-collapse: collapse;
+}
+.table {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+.table__input {
+    width: 120px;
+    text-align: center;
+    font-size: 14px;
+    outline: none;
+    border: none;
+}
+.table__day {
+    background-color: aqua;
+}
+.schedule__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.schedule__heading {
+    font-size: 24px;
+    margin-top: 30px;
+}
+.schedule__navbar-btn {
+    width: 80px;
+    padding: 6 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: #f87086;
+    color: #fff;
+    font-size: 16px;
+    margin-left: 20px;
+}
+.schedule__navbar-btn:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
