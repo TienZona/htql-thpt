@@ -23,7 +23,7 @@
                     <h2 class="navbar__heading">HỆ THỐNG QUẢN LÝ</h2>
                 </div>
                 <div class="header__navbar-item">
-                    <h1 class="navbar__name">TRƯỜNG TRUNG HỌC PHỔ THÔNG AN BIÊN</h1>
+                    <h1 class="navbar__name">TRƯỜNG TRUNG HỌC PHỔ THÔNG</h1>
                 </div>
                 <div class="header__navbar-item">
                     <div class="navbar__menu">
@@ -76,7 +76,7 @@
                     <h3>Đăng nhập</h3>
                 </div>
                 <div class="form__container">
-                    <p>Hệ thống quản lý - Trường THPT An Biên</p>    
+                    <p>Hệ thống quản lý - Trường THPT</p>    
                     <div class="spacer"></div>
                     <div class="form-group">
                         <label for="fullname" class="form-label">Tên đăng nhập</label>
@@ -97,29 +97,42 @@
             </div>
             <div id="container__schedule" class="container__schedule display--none">
                 <div class="schedule__navbar">
-                    <div class="schedule__navbar-item schedule__navbar-level">
-                        <label for="level-class" class="schedule__navbar-item-lable label-level">Khối: </label>
-                        <select name="level-class" id="level-class" class="select-class">
-                            <option value="12">12</option>
-                            <option value="11">11</option>
-                            <option value="10">10</option>
-                        </select>
+                    <div class="schedule__navbar-heading">
+                        <h1>Lập thời khóa biểu</h1>
                     </div>
-                    <div class="schedule__navbar-item schedule__navbar-class">
-                        <label for="" class="schedule__navbar-item-lable select-class">Lớp: </label>
-                        <select name="class" id="class" class="class">
-                            <option value="12A1">12A1</option>
-                        </select>
+                    <div class="schedule__navbar-list">
+                        <div class="schedule__navbar-item schedule__navbar-level">
+                            <label for="level-class" class="schedule__navbar-item-lable label-level">Khối: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="12">12</option>
+                                <option value="11">11</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="schedule__navbar-item schedule__navbar-class">
+                            <label for="" class="schedule__navbar-item-lable select-class">Lớp: </label>
+                            <select name="class" id="class" class="class">
+                                <option value="12A1">12A1</option>
+                            </select>
+                        </div>
+                        <div class="schedule__navbar-item schedule__navbar-level">
+                            <label for="level-class" class="schedule__navbar-item-lable label-level">Học kỳ: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="21">Cả năm</option>
+                                <option value="22">1</option>
+                                <option value="23">2</option>
+                            </select>
+                        </div>
+                        <div class="schedule__navbar-item schedule__navbar-level">
+                            <label for="level-class" class="schedule__navbar-item-lable label-level">Năm học: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="21">2020 - 2021</option>
+                                <option value="22">2021 - 2022</option>
+                                <option value="23">2022 - 2023</option>
+                            </select>
+                        </div>
+                        <button class="schedule__navbar-btn">Lưu</button>
                     </div>
-                    <div class="schedule__navbar-item schedule__navbar-level">
-                        <label for="level-class" class="schedule__navbar-item-lable label-level">Năm học: </label>
-                        <select name="level-class" id="level-class" class="select-class">
-                            <option value="21">2020 - 2021</option>
-                            <option value="22">2021 - 2022</option>
-                            <option value="23">2022 - 2023</option>
-                        </select>
-                    </div>
-                    <button class="schedule__navbar-btn">Lưu</button>
                 </div>
                 <div class="schedule__container">
                     <h1 class="schedule__heading">Buổi sáng</h1>
@@ -262,11 +275,162 @@
                 </div>
                 
             </div>
+            <div id="container__assigning" class="container__assigning display--none">
+                <div class="assigning__navbar">
+
+                </div>
+                <div class="assigning__container">
+
+                </div>
+            </div>
+            <div id="container__watch" class="container__watch display--none">
+                <div class="watch__navbar">
+                    <div class="watch__navbar-heading">
+                        <h1>Xem danh sách lớp</h1>
+                    </div>
+                    <div class="watch__navbar-list">
+                        <div class="watch__navbar-item">
+                            <label for="watch__navbar-item-level">Khối </label>
+                            <select name="watch__navbar-item-level" id="watch__navbar-item-level">
+                                <option value="12">12</option>
+                                <option value="11">11</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="watch__navbar-item">
+                            <label for="watch__navbar-item-class">Lớp </label>
+                            <select name="watch__navbar-item-class" id="watch__navbar-item-class">
+                                <option value="12A1">12A1</option>
+                            </select>
+                        </div>
+                        <button class="watch__navbar-item-btn">Liệt kê</button>
+                    </div>
+                </div>
+                <div class="watch__container display--none">
+                    <h1 class="watch__container-heading"></h1>
+                    <table>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và tên</th>
+                            <th>Ngày sinh</th>
+                            <th>Giới tính</th>
+                            <th>Số điện thoại</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Trịnh Thị Thu An</td>
+                            <td>11/5/2002</td>
+                            <td>Nữ</td>
+                            <td>0912312323</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="container__update" class="container__update display--none">
+
+            </div>
+            <div id="container__voting" class="container__voting display--none">
+
+            </div>
+            <div id="container__score" class="container__score display--none">
+
+            </div>
         </div>
         <div class="footer">
-            <p>Trường Trung Học Phổ tdông An Biên</p>
-            <p>Địa chỉ: Khu vực 1 - Thị Trấn Thứ Ba - H. An Biên - T. Kiên Giang</p>
-            <p>Điện thoại: 000000000  ; Email thptanbien@edu.vn</p>
+            <p>Trường Trung Học Phổ Thông</p>
+            <p>Địa chỉ: </p>
+            <p>Điện thoại: 000000000,   Email: thpt@edu.vn</p>
         </div>
     </div>
 
@@ -275,6 +439,8 @@
     <script>
 // ------------------------------------------------------
         const form = document.querySelector('#form');
+
+        // logged({fullname: 'TienZona', password: '123456'});
 
         Validator({
             form: '#form',

@@ -59,11 +59,18 @@ const btnOut = $('.navbar__menu-btn--out');
 const userName = $('.navbar__menu-user');
 const outBtn = $('.navbar__menu-btn--out');
 const homeBtn = $('.navbar__menu-btn--home');
+
 const containerList = $('.container__list');
+
+// Biến nội dung từng chức năng
+
 const containerDecen = $('.container__decen');
-const itemDecen = $('#list-items--decen');
-const itemSchedule = $('#list-items--schedule');
-const schedule = $('#container__schedule');
+const containerSchedule = $('#container__schedule');
+const containerAssigning = $('#container__assigning');
+const containerWatch = $('#container__watch');
+const containerUpdate = $('#container__update');
+const containerVoting = $('#container__voting');
+const containerScore = $('#container__score');
 
 function getUser(user){
     var user = accounts.filter(function(account){
@@ -97,23 +104,30 @@ function display(elementName, isDisplay){
     }
 }
 
+function homeDisplay(isDisplay){
+    display(form, !isDisplay);
+    display(outBtn, isDisplay);
+    display(userName, isDisplay);
+    display(containerList, isDisplay);
+    display(homeBtn, isDisplay);
+}
 
 /* ----------------------------------Sử lý khi đã đăng nhập-------------------------------- */
 function logged(data){
     userName.innerHTML = `${getUser(data).fullname}`;
-    display(form, false);
-    display(outBtn, true);
-    display(userName, true);
-    display(containerList, true);
-    display(homeBtn, true);
+    homeDisplay(true);
 
     // Về trang chủ
     if(homeBtn){
         homeBtn.onclick = function(e){
-            display('.container__list',true);
-            display('.container__decen', false);
-            display(schedule, false);
-
+            display(containerList,true);
+            display(containerDecen, false);
+            display(containerSchedule, false);
+            display(containerAssigning, false);
+            display(containerWatch, false);
+            display(containerVoting, false);
+            display(containerUpdate, false);
+            display(containerScore, false);
         }
     }   
 
@@ -121,17 +135,16 @@ function logged(data){
     if(btnOut){
         btnOut.onclick = function(e){
             alert('Bạn có chắc muốn thoát');
-            window.location.href = "http://127.0.0.1:5500/index.html";
-            display(containerList,false);
-            display(form,true);
-            display(outBtn,false);
-            display(userName,false);
-            display(homeBtn,false);
-            display(containerDecen, false);
-            display(schedule, false);
+            window.location.href = "./index.html";
+            homeDisplay(false);
         }
     }
     // chọn chức năng
+
+    const itemDecen = $('#list-items--decen');
+    const itemSchedule = $('#list-items--schedule');    
+    const itemAssigning = $('#list-items--assigning');
+    const itemWatch = $('#list-items--watch');
 
     itemDecen.onclick = function(){
         display(containerDecen, true);
@@ -141,7 +154,17 @@ function logged(data){
 
     itemSchedule.onclick = function(){
         display(containerList, false);
-        display(schedule, true);
+        display(containerSchedule, true);
+    }
+
+    itemAssigning.onclick = function(){
+        display(containerList, false);
+        display(containerAssigning, true);
+    }
+
+    itemWatch.onclick = function(){
+        display(containerList, false);
+        display(containerWatch, true);
     }
 
 
@@ -175,8 +198,6 @@ function logged(data){
             break;
         default: 
     }
-
-
 }
 
 
@@ -238,14 +259,26 @@ function getSource(position){
 
 /* ------------------------------Lập thời khóa biểu--------------------------------- */
 
-// Xử lý chọn lớp lập thời khóa biểu
+// Xử lý chọn lớp học
 const selectLevel = $('#level-class');
 const selectClass = $('#class');
 const saveSchadule = $('.schedule__navbar-btn');
 
+const watchLevel = $('#watch__navbar-item-level');
+const watchClass = $('#watch__navbar-item-class');
+const watchBtnSave = $('.watch__navbar-item-btn');
+const watchHeading = $('.watch__container-heading');
+const watchContainer = $('.watch__container');
+
+
 renderClass(12, selectClass);
 selectLevel.onchange = function () {
     renderClass(this.value, selectClass);
+}
+
+renderClass(12, watchClass);
+watchLevel.onchange = function () {
+    renderClass(this.value, watchClass);
 }
 
 function renderClass(level, selectClass){
@@ -260,5 +293,10 @@ function renderClass(level, selectClass){
 
 saveSchadule.onclick = function(){
     alert('Đã lưu thời khóa biểu');
+}
+
+watchBtnSave.onclick = function(){
+    watchContainer.classList.remove('display--none');
+    watchHeading.innerHTML = `Danh sách lớp ${watchClass.value}`;
 }
 // function render
