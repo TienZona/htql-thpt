@@ -1,55 +1,3 @@
-const accounts  = [
-    {
-        id: 1,
-        name: 'TienZona',
-        fullname: 'Chung Phát Tiến',
-        password: '123456',
-        position: 'boss'
-    },
-    {
-        id: 2,
-        name: 'HieuTruong',
-        fullname: 'Thầy hiệu trưởng',
-        password: '123456',
-        position: 'Administrators'
-    },
-    {
-        id: 3,
-        name: 'GiaoVienBoMon1',
-        fullname: 'Giáo viên bộ môn 1',
-        password: '123456',
-        position: 'teacher-subject'
-    },
-    {
-        id: 4,
-        name: 'GiaoVienBoMon2',
-        fullname: 'Giáo viên bộ môn 2',
-        password: '123456',
-        position: 'teacher-subject'
-    },
-    {
-        id: 5,
-        name: 'GiaoVienBoMon3',
-        fullname: 'Giáo viên bộ môn 3',
-        password: '123456',
-        position: 'teacher-subject'
-    },
-    {
-        id: 6,
-        name: 'GiaoVienChuNhiem1',
-        fullname: 'Giáo viên chủ nhiệm 1',
-        password: '123456',
-        position: 'teacher-homeroom'
-    },
-    {
-        id: 7,
-        name: 'GiaoVienChuNhiem2',
-        fullname: 'Giáo viên chủ nhiệm 2',
-        password: '123456',
-        position: 'teacher-homeroom'
-    }
-]
-
 
 
 const $ = document.querySelector.bind(document);
@@ -60,7 +8,9 @@ const userName = $('.navbar__menu-user');
 const outBtn = $('.navbar__menu-btn--out');
 const homeBtn = $('.navbar__menu-btn--home');
 
+const containerHome = $('.container__home');
 const containerList = $('.container__list');
+const containerInfor = $('.container__infor');
 
 // Biến nội dung từng chức năng
 
@@ -103,24 +53,46 @@ function display(elementName, isDisplay){
         element.classList.add('display--none');
     }
 }
+/*-----------------------------------Sử lý trang chủ----------------------------------------*/  
 
+// Hàm hiển thị trang chủ
 function homeDisplay(isDisplay){
     display(form, !isDisplay);
     display(outBtn, isDisplay);
     display(userName, isDisplay);
-    display(containerList, isDisplay);
+    display(containerHome, isDisplay);
     display(homeBtn, isDisplay);
 }
 
+
+function renderInformation(user, teachers){
+    const result = teachers.filter(function(teacher){
+        return user.mscb === teacher.mscb;
+    })
+    const teacher = result[0];
+    const contentName = $('.content__name');
+    const contentBirthDate = $('.content__birthdate');
+    const contentGender = $('.content__gender');
+    const contentPosition = $('.content__position');
+
+    contentName.innerHTML += `<p class="content__infor">${teacher.fullname}</p>`;
+    contentBirthDate.innerHTML += `<p class="content__infor">${teacher.birthDate}</p>`;
+    contentGender.innerHTML += `<p class="content__infor">${teacher.gender}</p>`;
+    contentPosition.innerHTML += `<p class="content__infor">${teacher.position}</p>`;
+}
+
+
+
 /* ----------------------------------Sử lý khi đã đăng nhập-------------------------------- */
 function logged(data){
+    const userLog = getUser(data);
     userName.innerHTML = `${getUser(data).fullname}`;
     homeDisplay(true);
-
+    renderInformation(userLog ,teachers);
     // Về trang chủ
     if(homeBtn){
         homeBtn.onclick = function(e){
-            display(containerList,true);
+            display(containerHome,true);
             display(containerDecen, false);
             display(containerSchedule, false);
             display(containerAssigning, false);
@@ -134,9 +106,10 @@ function logged(data){
     // THoát 
     if(btnOut){
         btnOut.onclick = function(e){
-            alert('Bạn có chắc muốn thoát');
-            window.location.href = "./index.html";
-            homeDisplay(false);
+            if(confirm('Bạn có chắc muốn thoát')){
+                window.location.href = "./index.html";
+                homeDisplay(false);
+            }
         }
     }
     // chọn chức năng
@@ -148,22 +121,22 @@ function logged(data){
 
     itemDecen.onclick = function(){
         display(containerDecen, true);
-        display(containerList, false);
+        display(containerHome, false);
         renderDecen(accounts, data);
     }
 
     itemSchedule.onclick = function(){
-        display(containerList, false);
+        display(containerHome, false);
         display(containerSchedule, true);
     }
 
     itemAssigning.onclick = function(){
-        display(containerList, false);
+        display(containerHome, false);
         display(containerAssigning, true);
     }
 
     itemWatch.onclick = function(){
-        display(containerList, false);
+        display(containerHome, false);
         display(containerWatch, true);
     }
 
@@ -175,7 +148,7 @@ function logged(data){
     })
     const user= getUser(data);
     switch (user.position){
-        case 'boss': 
+        case 'admin': 
             const items = $$('.list-items');
             items.forEach(function(item){
                 display(item, true);
@@ -206,11 +179,11 @@ function logged(data){
 const decentralization = $('#container__decen');
 const decenList = $('.decen__list');
 
-// Xử lý giao diện
+// Xử lý giao diện phân quyền hệ thống
 function renderDecen(accounts, user){
     const htmls = accounts.map(function(account, index){
         const src = getSource(account.position);
-        return ((user.fullname === account.name) || (account.position === 'boss')) ? '' : `
+        return ((user.fullname === account.name) || (account.position === 'admin')) ? '' : `
         <div class="decen__list-users">
             <img class="users__img" src="${src}" alt="">
             <table class="users__infor">
@@ -246,10 +219,9 @@ function renderDecen(accounts, user){
         } 
     })
 }
-
 function getSource(position){
     switch (position){
-        case 'boss': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRg6mcF8ahzuZCEGb6q957TAaswNJwBq7shQ&usqp=CAU'; break;
+        case 'admin': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRg6mcF8ahzuZCEGb6q957TAaswNJwBq7shQ&usqp=CAU'; break;
         case 'Administrators': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctA-NSI59h7c-JFVTUWhozUanBiB-rX0MMg&usqp=CAU'; break;
         case 'teacher-subject': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCevtWkfWhNADi52wcGtc_16g6snPY9Je_wQ&usqp=CAU'; break;
         case 'teacher-homeroom': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpP7IYDDV_TjtQY4gw78U39mgB04XWKkquIg&usqp=CAU'; break;
@@ -295,8 +267,39 @@ saveSchadule.onclick = function(){
     alert('Đã lưu thời khóa biểu');
 }
 
+
 watchBtnSave.onclick = function(){
+    renderClassList(classLists, watchClass.value);
     watchContainer.classList.remove('display--none');
     watchHeading.innerHTML = `Danh sách lớp ${watchClass.value}`;
 }
-// function render
+// Sử lý giao diện danh sách lớp
+const tableClassList = $('.watch__container-classLists');
+
+function renderClassList(classLists, className){
+    tableClassList.innerHTML = `
+        <tr>
+            <th>STT</th>
+            <th>Họ và tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Số điện thoại</th>
+        </tr>
+        `;  
+    var classList = classLists.filter(function(classList){
+        return classList.name === className;
+    })
+    if(classList[0]){
+        classList[0].students.forEach(function(student,index){
+            tableClassList.innerHTML += `
+            <tr>
+                <th class="classLists__number">${index+1}</th>
+                <td class="classLists__name">${student.name}</td>
+                <td class="classLists__birthDate">${student.birthDate}</td>
+                <td class="classLists__gender">${student.gender}</td>
+                <td class="classLists__telephone">${student.telephone}</td>
+            </tr>
+            `
+        })
+    }
+}

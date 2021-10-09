@@ -26,8 +26,8 @@
     color: blue;
 }
 .navbar__name {
-    font-size: 24px;
-    color: white;
+    font-size: 28px;
+    color: rgb(243, 45, 167);
 }
 .navbar__menu {
     display: flex;
@@ -146,7 +146,7 @@ color: #f33a58;
 
 .container {
     min-height: 400px;
-    margin: 50px auto !important;
+    margin: 20px auto !important;
 }
 .list-items {
     position: relative;
@@ -167,6 +167,7 @@ color: #f33a58;
     font-size: 16px;
     color: #000;
     bottom: 20px;
+    text-align: center;
 }
 .display--none {
     display: none !important;
@@ -403,4 +404,69 @@ color: #f33a58;
 .watch__container-heading {
     text-align: center;
     margin-bottom: 20px;
+}
+.classLists__name {
+    width: 275px;
+    padding-left: 10px;
+    text-align:left;
+}
+.container__home {
+    display: flex;
+}
+.container__infor {
+    flex: 1;
+    margin-top: 30px;
+}
+.container__list {
+    margin-left: 40px;
+    flex: 2;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.container__infor-table {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background-image: linear-gradient(160deg, rgb(40, 247, 185) ,  rgb(219, 157, 243));
+    border-radius: 10px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
+}
+.container__infor-table-header {
+    position: absolute;
+    top: 0;
+    width: calc(100% + 30px);
+    height: 60px;
+    border-radius: 30px;
+    margin: 0 -15px;
+    background-image: linear-gradient(180deg, #9b8be4, rgb(127, 51, 172));
+    box-shadow: 0 10px 8px rgba(16, 16, 75, 0.3);
+}
+.container__infor-table-header h3 {
+    text-align: center;
+    font-size: 24px;
+    color: #eef7c0;
+}
+.container__infor-table-content {
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.container__infor-table-content span {
+    width: calc(100% - 40px);
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 15px 20px;
+    padding: 0 16px;
+    font-size: 16px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 255, 0.6);
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+.content__infor {
+    margin-left: 20px;
+    color: #ec1da7;
 }
