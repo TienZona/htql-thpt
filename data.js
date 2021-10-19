@@ -47,6 +47,13 @@ const accounts  = [
         fullname: 'Giáo viên chủ nhiệm 2',
         password: '123456',
         position: 'teacher-homeroom'
+    },
+    {
+        mscb: 'CB007',
+        name: 'TruongBoMon',
+        fullname: 'Trưởng bộ môn',
+        password: '123456',
+        position: 'headOfDepartment'
     }
 ]
 

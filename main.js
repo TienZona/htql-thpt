@@ -118,6 +118,7 @@ function logged(data){
     const itemSchedule = $('#list-items--schedule');    
     const itemAssigning = $('#list-items--assigning');
     const itemWatch = $('#list-items--watch');
+    const itemUpdate = $('#list-items--update');
 
     itemDecen.onclick = function(){
         display(containerDecen, true);
@@ -138,6 +139,10 @@ function logged(data){
     itemWatch.onclick = function(){
         display(containerHome, false);
         display(containerWatch, true);
+    }
+    itemUpdate.onclick = function(){
+        display(containerHome, false);
+        display(containerUpdate, true);
     }
 
 
@@ -165,8 +170,11 @@ function logged(data){
             break;
         case 'teacher-homeroom':
             display('#list-items--watch',true);
-            display('#list-items--update',true);
             display('#list-items--votting',true);
+            display('#list-items--score',true);
+            break;
+        case 'HeadOfDepartment':
+            display('#list-items--watch',true);
             display('#list-items--score',true);
             break;
         default: 
@@ -201,6 +209,7 @@ function renderDecen(accounts, user){
                     <option value="Administrators">Administrators</option>
                     <option value="teacher-subject">teacher-subject</option>
                     <option value="teacher-homeroom">teacher-homeroom</option>
+                    <option value="headOfDepartment">headOfDepartment</option>
                 </select>
                 <button class="users__edt-btn">Lưu</button>
             </div>
@@ -225,6 +234,7 @@ function getSource(position){
         case 'Administrators': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctA-NSI59h7c-JFVTUWhozUanBiB-rX0MMg&usqp=CAU'; break;
         case 'teacher-subject': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCevtWkfWhNADi52wcGtc_16g6snPY9Je_wQ&usqp=CAU'; break;
         case 'teacher-homeroom': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpP7IYDDV_TjtQY4gw78U39mgB04XWKkquIg&usqp=CAU'; break;
+        case 'headOfDepartment': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffZfEd5t5jg_-rbWccL7ao7N35wsZg0F8zg&usqp=CAU'; break;
         default: return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRitJuxaJKiZ4CMpST04Nswn6UBEj-5hZMwbQ&usqp=CAU';
     }
 }
@@ -241,6 +251,11 @@ const watchClass = $('#watch__navbar-item-class');
 const watchBtnSave = $('.watch__navbar-item-btn');
 const watchHeading = $('.watch__container-heading');
 const watchContainer = $('.watch__container');
+const selectClassName = $('.schedule__container-class');
+
+const updateLevel = $('#update__navbar-item-level');
+const updateClass = $('#update__navbar-item-class');
+const updateBtnSave = $('.update__navbar-item-btn');
 
 
 renderClass(12, selectClass);
@@ -253,6 +268,12 @@ watchLevel.onchange = function () {
     renderClass(this.value, watchClass);
 }
 
+renderClass(12, updateClass);
+updateLevel.onchange = function(){
+    renderClass(this.value, updateClass);
+}
+
+// render chọn lớp học
 function renderClass(level, selectClass){
     var htmls = '';
     for(let i = 1; i <= 10; i++){
@@ -263,16 +284,17 @@ function renderClass(level, selectClass){
     selectClass.innerHTML = htmls;
 }
 
-saveSchadule.onclick = function(){
-    alert('Đã lưu thời khóa biểu');
-}
-
-
+// Chọn lớp xem danh sách lớp
 watchBtnSave.onclick = function(){
     renderClassList(classLists, watchClass.value);
     watchContainer.classList.remove('display--none');
     watchHeading.innerHTML = `Danh sách lớp ${watchClass.value}`;
 }
+selectClassName.innerHTML = `Lớp: ${selectClass.value}`;
+saveSchadule.onclick = function(){
+    selectClassName.innerHTML = `Lớp: ${selectClass.value}`;
+}
+
 // Sử lý giao diện danh sách lớp
 const tableClassList = $('.watch__container-classLists');
 
@@ -302,4 +324,208 @@ function renderClassList(classLists, className){
             `
         })
     }
+}
+
+
+/* ------------------------------update danh sach lop----------------------------*/
+
+
+// Liệt kê lớp học cần chỉnh sửa
+var classListTemp;
+updateBtnSave.onclick = function(){
+    classListTemp = {...getClassLists(updateClass.value)};
+    classListTemp.students = [...getClassLists(updateClass.value).students];
+    const heading = $('.update__container-heading');
+    heading.innerHTML = `Lớp: ${updateClass.value}`;
+    const updateContainer = $('.update__container');
+    if(!updateContainer.querySelector('.btn__save--update')){
+        updateContainer.innerHTML += '<button class="btn__save--update">Lưu chỉnh sửa</button>';
+        updateContainer.innerHTML += '<button class="btn__save--add">Thêm</button>';
+    }
+    renderUpdateClassList(classListTemp);
+    
+    // Sao khi có danh sách lớp
+    btnDelete();
+    btnAdd();
+    startUpdate();
+
+    // Lưu chỉnh sửa
+    const saveBtn = $('.btn__save--update');
+    saveBtn.onclick = function(){
+        updateData(getClassLists(updateClass.value));
+    } 
+    
+}
+
+
+// Bấm xóa học sinh
+function btnDelete(){
+    const updateBtnDeletes = $$('.update__btn--delete');
+    if(updateBtnDeletes){
+        updateBtnDeletes.forEach(function(btn, index){
+            btn.onclick = function(){
+                const id = parseInt(btn.parentElement.parentElement.querySelector('.classLists__number').outerHTML.substring(31,32));
+                deleteStudent(index, classListTemp);
+                btn.parentElement.parentElement.parentElement.innerHTML = '';
+                renderUpdateClassList(classListTemp);
+                btnDelete();
+            };
+        })
+    }
+}
+
+// Chỉnh sửa thông tin
+function startUpdate(){
+    const tableClassList = $('.update__container-classLists');
+    const inputElements = tableClassList.querySelectorAll('.table__input');
+    inputElements.forEach(function(inputElement, index){
+        inputElement.oninput = function(e){
+            inputElement.classList.add('oninput');
+            const temp = this.parentElement.parentElement.querySelector('.classLists__number').outerHTML;
+            const index =  parseInt(temp.substring(31, 32)) - 1;
+            const row = this.parentElement.parentElement;
+            const name = row.querySelector('.classLists__name').firstChild.value;
+            const birthDate = row.querySelector('.classLists__birthDate').firstChild.value;
+            const gender = row.querySelector('.classLists__gender').firstChild.value;
+            const telephone = row.querySelector('.classLists__telephone').firstChild.value;
+            const value = {
+                id: index,
+                name: name,
+                birthDate: birthDate,
+                gender: gender,
+                telephone: telephone
+            }
+            updateStudent(index , value, classListTemp);
+        }
+    })
+}
+
+
+// Bấm nút thêm
+function btnAdd(){
+    const btnAdd = $('.btn__save--add');
+    btnAdd.onclick = function(){
+        const tableClassList = $('.update__container-classLists');
+        const numberRow = $$('.row__student');
+        tableClassList.innerHTML += `
+            <tr class="row__student">
+                <th class="classLists__number">${numberRow.length + 1}</th>
+                <td class="classLists__name"><input class="table__input" type="text" value=""></input></td>
+                <td class="classLists__birthDate"><input class="table__input" type="text" value=""></input></td>
+                <td class="classLists__gender"><input class="table__input" type="text" value=""></input></td>
+                <td class="classLists__telephone"><input class="table__input" type="text" value=""></input></td>
+                <td class="update__btn">
+                    <button class="update__btn--delete">Xóa</button>
+                </td>
+            </tr>
+        `
+        const id  = classListTemp.students[classListTemp.students.length - 1].id + 1;
+        const data = {
+            id: id,
+            name: '',
+            birthDate: '',
+            gender: '',
+            telephone: ''
+        }
+        addStudent(data, classListTemp);
+        renderUpdateClassList(classListTemp);
+        btnDelete();
+        startUpdate();
+    }
+}
+
+// Xóa một học sinh ra khỏi danh sách lớp
+function deleteStudent(index, classList){
+    if(index == 0){
+        classList.students.shift();
+    }else{
+        classList.students.splice(index,1);
+    }
+}
+
+function addStudent(student, classList){
+    classList.students[classList.students.length] = {
+        id: student.id,
+        name: student.name,
+        birthDate: student.birthDate,
+        gender: student.gender,
+        telephone: student.telephone
+    }
+}
+
+function updateStudent(index, data, classList){
+    const student = classList.students[index];
+    student.name = data.name;
+    student.birthDate = data.birthDate;
+    student.gender = data.gender;
+    student.telephone = student.telephone;
+}
+
+// render ra danh sách lớp để update
+function renderUpdateClassList(classLists){
+    const tableClassList = $('.update__container-classLists');
+    tableClassList.innerHTML = `
+        <tr>
+            <th>STT</th>
+            <th>Họ và tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Số điện thoại</th>
+            <th class="col__btn">Chỉnh sửa</th>
+        </tr>
+        `;  
+    var classList = classLists;
+    if(classList){
+        classList.students.forEach(function(student,index){
+            tableClassList.innerHTML += `
+            <tr class="row__student">
+                <th class="classLists__number">${index+1}</th>
+                <td class="classLists__name"><input class="table__input" type="text" value="${student.name}"></input></td>
+                <td class="classLists__birthDate"><input class="table__input" type="text" value="${student.birthDate}"></input></td>
+                <td class="classLists__gender"><input class="table__input" type="text" value="${student.gender}"></input></td>
+                <td class="classLists__telephone"><input class="table__input" type="text" value="${student.telephone}"></input></td>
+                <td class="update__btn">
+                    <button class="update__btn--delete">Xóa</button>
+                </td>
+            </tr>
+            `
+        })
+    }
+}
+
+// cập nhật dữ liệu sao khi lưu chỉnh sửa
+
+function updateData(classList){
+    const tableClassList = $('.update__container-classLists');
+    const datas = tableClassList.querySelectorAll('.row__student');
+    const students = [];
+    datas.forEach(function(data, index){
+        const name = data.querySelector('.classLists__name').firstChild.value;
+        const birthDate = data.querySelector('.classLists__birthDate').firstChild.value;
+        const gender = data.querySelector('.classLists__gender').firstChild.value;
+        const telephone = data.querySelector('.classLists__telephone').firstChild.value;
+        students[index] = {
+            id: index+1,
+            name: name,
+            birthDate: birthDate,
+            gender: gender,
+            telephone: telephone
+        }
+    })
+    classList.students = students;
+}
+
+function getClassLists(className){
+    const classList = classLists.filter(function(classList){
+        return classList.name === className
+    });
+    return classList[0];
+}
+
+function renderNumber(){
+    const tableClassList = $('.update__container-classLists');
+    const numberRows = tableClassList.querySelectorAll('.row__student');
+    numberRows.forEach(function(numberRow, index){
+        numberRow.firstChild.innerHTML = index+1;
+    })
 }

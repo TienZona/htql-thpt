@@ -45,7 +45,7 @@
                 <div class="container__infor col c-0 m-0 l-6">
                     <div class="container__infor-table">
                         <div class="container__infor-table-header">
-                            <h3>Thông tin cán bộ</h3>
+                            <h3>Thông tin giáo viên</h3>
                         </div>
                         <div class="container__infor-table-content">
                             <span class="content__name">Họ và tên: </span>
@@ -84,6 +84,10 @@
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScHFjKkra-yY3Cr6FpJENDILnEo237MbK0yg&usqp=CAU" alt="" class="list-items__img">
                         <span class="list-items__name">Cập nhật điểm số</span>
                     </div>
+                    <div id="list-items--score" class="list-items display--none col c-6 m-6 l-3">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlhmFgkcsCO-6bKDEU7CX6eyq8mNfN_fcRCQ&usqp=CAU" alt="" class="list-items__img">
+                        <span class="list-items__name">Xem lịch giảng dạy</span>
+                    </div>
                 </div>
             </div>
             <form action="" id="form" class="form" method="POST">
@@ -113,7 +117,7 @@
             <div id="container__schedule" class="container__schedule display--none">
                 <div class="schedule__navbar">
                     <div class="schedule__navbar-heading">
-                        <h1>Lập thời khóa biểu</h1>
+                        <h1>Cập nhật khóa biểu</h1>
                     </div>
                     <div class="schedule__navbar-list">
                         <div class="schedule__navbar-item schedule__navbar-level">
@@ -146,10 +150,11 @@
                                 <option value="23">2022 - 2023</option>
                             </select>
                         </div>
-                        <button class="schedule__navbar-btn">Lưu</button>
+                        <button class="schedule__navbar-btn">Liệt kê</button>
                     </div>
                 </div>
                 <div class="schedule__container">
+                    <h1 class="schedule__container-class">Lớp:  </h1>
                     <h1 class="schedule__heading">Buổi sáng</h1>
                     <table class="table">
                         <tr>
@@ -328,7 +333,34 @@
                 </div>
             </div>
             <div id="container__update" class="container__update display--none">
-
+                <div class="watch__navbar">
+                    <div class="watch__navbar-heading">
+                        <h1>Cập nhật danh sách lớp</h1>
+                    </div>
+                    <div class="watch__navbar-list">
+                        <div class="watch__navbar-item">
+                            <label for="update__navbar-item-level">Khối </label>
+                            <select name="update__navbar-item-level" id="update__navbar-item-level">
+                                <option value="12">12</option>
+                                <option value="11">11</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="watch__navbar-item">
+                            <label for="update__navbar-item-class">Lớp </label>
+                            <select name="update__navbar-item-class" id="update__navbar-item-class">
+                                <option value="12A1">12A1</option>
+                            </select>
+                        </div>
+                        <button class="watch__navbar-item-btn update__navbar-item-btn">Liệt kê</button>
+                    </div>
+                </div>
+                <div class="update__container">
+                    <h1 class="update__container-heading"></h1>
+                    <table class="update__container-classLists">
+                    </table>
+                </div>
+                
             </div>
             <div id="container__voting" class="container__voting display--none">
 
@@ -351,7 +383,7 @@
 // ------------------------------------------------------
         const form = document.querySelector('#form');
 
-        logged({fullname: 'TienZona', password: '123456'});
+        // logged({fullname: 'TienZona', password: '123456'});
 
         Validator({
             form: '#form',
