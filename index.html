@@ -58,7 +58,7 @@
                 <div class="container__list row">
                     <div id="list-items--decen" class="list-items display--none col c-6 m-6 l-3">
                         <img class="list-items__img" src="https://png.pngtree.com/png-vector/20190826/ourlarge/pngtree-group-png-image_1696838.jpg" alt="">
-                        <span class="list-items__name">Phân quyền hệ thống</span>
+                        <span class="list-items__name">Phân quyền tài khoản</span>
                     </div>
                     <div id="list-items--schedule" class="list-items display--none col c-6 m-6 l-3">
                         <img src="https://file1.hutech.edu.vn/file/news/tkb_thpt_ngoc_lac-1561459088.png" alt="" class="list-items__img">
@@ -84,7 +84,7 @@
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScHFjKkra-yY3Cr6FpJENDILnEo237MbK0yg&usqp=CAU" alt="" class="list-items__img">
                         <span class="list-items__name">Cập nhật điểm số</span>
                     </div>
-                    <div id="list-items--score" class="list-items display--none col c-6 m-6 l-3">
+                    <div id="list-items--teaching" class="list-items display--none col c-6 m-6 l-3">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlhmFgkcsCO-6bKDEU7CX6eyq8mNfN_fcRCQ&usqp=CAU" alt="" class="list-items__img">
                         <span class="list-items__name">Xem lịch giảng dạy</span>
                     </div>
@@ -110,11 +110,11 @@
                     <button class="form-submit">Đăng nhập</button>
                 </div>
             </form>
-            <div id="container__decen" class="container__decen display--none">
+            <div id="container__decen" class="container__items container__decen display--none">
                 <div class="decen__list">
                 </div>
             </div>
-            <div id="container__schedule" class="container__schedule display--none">
+            <div id="container__schedule" class="container__items container__schedule display--none">
                 <div class="schedule__navbar">
                     <div class="schedule__navbar-heading">
                         <h1>Cập nhật khóa biểu</h1>
@@ -150,6 +150,7 @@
                                 <option value="23">2022 - 2023</option>
                             </select>
                         </div>
+        
                         <button class="schedule__navbar-btn">Liệt kê</button>
                     </div>
                 </div>
@@ -295,15 +296,193 @@
                 </div>
                 
             </div>
-            <div id="container__assigning" class="container__assigning display--none">
+            <div id="container__assigning" class="container__items container__assigning display--none">
                 <div class="assigning__navbar">
-
+                    <div class="assigning__navbar-heading">
+                        <h1>Phân công giảng dạy</h1>
+                    </div>
+                    <div class="assigning__navbar-list">
+                        <div class="assigning__navbar-item assigning__navbar-level">
+                            <label for="level-class" class="assigning__navbar-item-lable label-level">Khối: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="12">12</option>
+                                <option value="11">11</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="assigning__navbar-item assigning__navbar-level">
+                            <label for="level-class" class="assigning__navbar-item-lable label-level">Môn học: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="1">Toán</option>
+                                <option value="2">Vật lý</option>
+                                <option value="3">Hóa học</option>
+                                <option value="4">Sinh học</option>
+                                <option value="5">Ngoại ngữ</option>
+                                <option value="6">Văn</option>
+                                <option value="7">Lịch sử</option>
+                                <option value="8">Địa lý</option>
+                                <option value="9">Công nghệ</option>
+                                <option value="10">Thể dục</option>
+                                <option value="11">GDCD</option>
+                                <option value="12">GDQP</option>
+                            </select>
+                        </div>
+                        <div class="assigning__navbar-item assigning__navbar-level">
+                            <label for="level-class" class="assigning__navbar-item-lable label-level">Năm học: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="1">2020 - 2021</option>
+                                <option value="2">2021 - 2022</option>
+                                <option value="3">2022 - 2023</option>
+                            </select>
+                        </div>
+                        <button class="assigning__navbar-btn">Liệt kê</button>
+                    </div>
                 </div>
                 <div class="assigning__container">
+                    <table class="assigning__table">
+                        <tr>
+                            <th class="th__heading">Lớp</th>
+                            <th class="th__heading">Giáo viên giảng dạy</th>
+                        </tr>
+                        <tr>
+                            <th>12A1</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        
+                        <tr>
+                            <th>12A1</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A2</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A3</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A4</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A5</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A6</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A7</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A8</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A9</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>12A10</th>
+                            <th>
+                                <label for="select-teacher"></label>
+                                <select name="teacher" id="select-teacher">
+                                    <option value="">Chọn giáo viên</option>
+                                    <option value="CB001">Nguyễn Văn Linh</option>
+                                    <option value="CB001">Trần Văn Quyết</option>
+                                    <option value="CB001">Huỳnh Anh Thư</option>
+                                </select>
+                            </th>
+                        </tr>
+                    </table>
 
+                    <button class="asssigning__btn-save">Lưu chỉnh sửa</button>
                 </div>
             </div>
-            <div id="container__watch" class="container__watch display--none">
+            <div id="container__watch" class="container__items container__watch display--none">
                 <div class="watch__navbar">
                     <div class="watch__navbar-heading">
                         <h1>Xem danh sách lớp</h1>
@@ -332,7 +511,7 @@
                     </table>
                 </div>
             </div>
-            <div id="container__update" class="container__update display--none">
+            <div id="container__update" class="container__items container__update display--none">
                 <div class="watch__navbar">
                     <div class="watch__navbar-heading">
                         <h1>Cập nhật danh sách lớp</h1>
@@ -362,11 +541,317 @@
                 </div>
                 
             </div>
-            <div id="container__voting" class="container__voting display--none">
+            <div id="container__voting" class="container__items container__voting display--none">
+                <div class="voting__navbar">
+                    <div class="voting__navbar-heading">
+                        <h1>Đánh giá hạnh kiểm</h1>
+                    </div>
+                    <div class="voting__navbar-classname">
+                        <h1>Lớp 12A1</h1>
+                    </div>
+                </div>
+                <div class="voting__container">
+                    <table class="voting__table watch__container-classLists">
+                    </table>
+                    <button class="asssigning__btn-save">Lưu đánh giá</button>
+                </div>
+            </div>
+            <div id="container__score" class="container__items container__score display--none">
+                <div class="score__navbar">
+                    <div class="score__navbar-heading">
+                        <h1>Cập nhật điểm số</h1>
+                    </div>
+                    <div class="score__navbar-list">
+                        <div class="assigning__navbar-item assigning__navbar-level">
+                            <label for="level-class" class="assigning__navbar-item-lable label-level">Khối: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="12">12</option>
+                                <option value="11">11</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        
+                        <div class="assigning__navbar-item assigning__navbar-level">
+                            <label for="level-class" class="assigning__navbar-item-lable label-level">Lớp </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="12A1">12A1</option>
+                                <option value="12A2">12A2</option>
+                                <option value="12A3">12A3</option>
+                            </select>
+                        </div>
+                        <div class="assigning__navbar-item assigning__navbar-level">
+                            <label for="level-class" class="assigning__navbar-item-lable label-level">Môn học: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="1">Toán</option>
+                                <option value="2">Vật lý</option>
+                                <option value="3">Hóa học</option>
+                                <option value="4">Sinh học</option>
+                                <option value="5">Ngoại ngữ</option>
+                                <option value="6">Văn</option>
+                                <option value="7">Lịch sử</option>
+                                <option value="8">Địa lý</option>
+                                <option value="9">Công nghệ</option>
+                                <option value="10">Thể dục</option>
+                                <option value="11">GDCD</option>
+                                <option value="12">GDQP</option>
+                            </select>
+                        </div>
+                        <div class="assigning__navbar-item assigning__navbar-level">
+                            <label for="level-class" class="assigning__navbar-item-lable label-level">Năm học: </label>
+                            <select name="level-class" id="level-class" class="select-class">
+                                <option value="1">2020 - 2021</option>
+                                <option value="2">2021 - 2022</option>
+                                <option value="3">2022 - 2023</option>
+                            </select>
+                        </div>
+                        <button class="assigning__navbar-btn">Liệt kê</button>
+                    </div>
+
+
+                </div>
+                <div class="score__container">
+                    <table class="score__table">
+                        <tr>
+                            <th rowspan="2" class="th__heading">STT</th>
+                            <th rowspan="2" class="th__heading">Họ và tên</th>
+                            <th colspan="3" class="th__heading">Miệng</th>
+                            <th colspan="5" class="th__heading">15 Phút</th>
+                            <th colspan="3" class="th__heading">1 Tiết</th>
+                            <th rowspan="2" class="th__heading">Học Kỳ</th>
+                            <th rowspan="2" class="th__heading">Điểm TBHK</th>
+                        </tr>
+                        <tr>
+                            <th class="th__heading">M1</th>
+                            <th class="th__heading">M2</th>
+                            <th class="th__heading">M3</th>
+                            <th class="th__heading">P1</th>
+                            <th class="th__heading">P2</th>
+                            <th class="th__heading">P3</th>
+                            <th class="th__heading">P4</th>
+                            <th class="th__heading">P5</th>
+                            <th class="th__heading">T1</th>
+                            <th class="th__heading">T2</th>
+                            <th class="th__heading">T3</th>
+                        </tr>
+                        <tr>
+                            <th class="th__heading">1</th>
+                            <th class="th__name">Phùng Thị Lan Anh</th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                        </tr>
+                        <tr>
+                            <th class="th__heading">2</th>
+                            <th class="th__name">Vũ Ngọc Anh</th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                        </tr>
+                        <tr>
+                            <th class="th__heading">3</th>
+                            <th class="th__name">Dương Minh Đại Cương</th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                            <th><input type="text" class="th__input"></th>
+                        </tr>
+                    </table>
+                    <button class="asssigning__btn-save">Lưu chỉnh sửa</button>
+                </div>
 
             </div>
-            <div id="container__score" class="container__score display--none">
+            <div id="container__teaching" class="container__items container__teaching display--none">
+                <div class="teaching__navbar">
+                    <div class="teaching__navbar-heading">
+                        <h1>Lịch giảng dạy</h1>
+                    </div>
+                    <div class="teaching__navbar-list">
+                        <div class="teaching__navbar-item">
+                            <label for="teaching__navbar-item-level">Học kỳ: </label>
+                            <select name="teaching__navbar-item-level" id="teaching__navbar-item-level">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="teaching__navbar-item">
+                            <label for="teaching__navbar-item-class">Năm học: </label>
+                            <select name="teaching__navbar-item-class" id="teaching__navbar-item-class">
+                                <option value="1">2020 - 2021</option>
+                                <option value="2">2021 - 2022</option>
+                                <option value="3">2022 - 2023</option>
+                            </select>
+                        </div>
+                        <button class="watch__navbar-item-btn">Liệt kê</button>
+                    </div>
+                </div>
+                <div class="teaching__container">
+                    <h1 class="schedule__heading">Buổi sáng</h1>
+                    <table class="table">
+                        <tr>
+                            <th class="table__day">Tiết</th>
+                            <th class="table__day">Thứ Hai</th>
+                            <th class="table__day">Thứ Ba</th>
+                            <th class="table__day">Thứ Tư</th>
+                            <th class="table__day">Thứ Năm</th>
+                            <th class="table__day">Thứ Sáu</th>
+                            <th class="table__day">Thứ Bảy</th>
+                            <th class="table__day">Chủ Nhật</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td><input class="table__input" type="text" value="12A2"></td>
+                            <td><input class="table__input" type="text" ></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td><input class="table__input" type="text" value="12A2"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text" value="12A1"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text" value="12A1"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                    </table>
 
+                    <h1 class="schedule__heading">Buổi chiều</h1>
+                    <table class="table">
+                        <tr>
+                            <th class="table__day">Tiết</th>
+                            <th class="table__day">Thứ Hai</th>
+                            <th class="table__day">Thứ Ba</th>
+                            <th class="table__day">Thứ Tư</th>
+                            <th class="table__day">Thứ Năm</th>
+                            <th class="table__day">Thứ Sáu</th>
+                            <th class="table__day">Thứ Bảy</th>
+                            <th class="table__day">Chủ Nhật</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td><input class="table__input" type="text" value="12A1"></td>
+                            <td><input class="table__input" type="text" value="12A2"></td>
+                            <td><input class="table__input" type="text" value="12A3"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td><input class="table__input" type="text" value="12A1"></td>
+                            <td><input class="table__input" type="text" value="12A2"></td>
+                            <td><input class="table__input" type="text" value="12A3"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            <td><input class="table__input" type="text"></td>
+                            
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="footer">

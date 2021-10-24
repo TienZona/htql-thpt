@@ -11,49 +11,49 @@ const accounts  = [
         name: 'HieuTruong',
         fullname: 'Thầy hiệu trưởng',
         password: '123456',
-        position: 'Administrators'
+        position: 'Hiệu trưởng'
     },
     {
         mscb: 'CB002',
         name: 'GiaoVienBoMon1',
         fullname: 'Giáo viên bộ môn 1',
         password: '123456',
-        position: 'teacher-subject'
+        position: 'Giáo viên bộ môn'
     },
     {
         mscb: 'CB003',
         name: 'GiaoVienBoMon2',
         fullname: 'Giáo viên bộ môn 2',
         password: '123456',
-        position: 'teacher-subject'
+        position: 'Giáo viên bộ môn'
     },
     {
         mscb: 'CB004',
         name: 'GiaoVienBoMon3',
         fullname: 'Giáo viên bộ môn 3',
         password: '123456',
-        position: 'teacher-subject'
+        position: 'Giáo viên bộ môn'
     },
     {
         mscb: 'CB005',
         name: 'GiaoVienChuNhiem1',
         fullname: 'Giáo viên chủ nhiệm 1',
         password: '123456',
-        position: 'teacher-homeroom'
+        position: 'Giáo viên chủ nhiệm'
     },
     {
         mscb: 'CB006',
         name: 'GiaoVienChuNhiem2',
         fullname: 'Giáo viên chủ nhiệm 2',
         password: '123456',
-        position: 'teacher-homeroom'
+        position: 'Giáo viên chủ nhiệm'
     },
     {
         mscb: 'CB007',
         name: 'TruongBoMon',
         fullname: 'Trưởng bộ môn',
         password: '123456',
-        position: 'headOfDepartment'
+        position: 'Trưởng bộ môn'
     }
 ]
 
@@ -107,6 +107,13 @@ const teachers = [
         birthDate: '12/10/1980',
         gender: 'Nữ',
         position: 'Giáo viên chủ nhiệm'
+    },
+    {
+        mscb: 'CB007',
+        fullname: 'Trưởng bộ môn',
+        birthDate: '12/10/1980',
+        gender: 'Nữ',
+        position: 'Trưởng bộ môn'
     }
 ]
 

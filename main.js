@@ -21,6 +21,7 @@ const containerWatch = $('#container__watch');
 const containerUpdate = $('#container__update');
 const containerVoting = $('#container__voting');
 const containerScore = $('#container__score');
+const containerTeaching = $('#container__teaching');
 
 function getUser(user){
     var user = accounts.filter(function(account){
@@ -100,6 +101,7 @@ function logged(data){
             display(containerVoting, false);
             display(containerUpdate, false);
             display(containerScore, false);
+            display(containerTeaching, false);
         }
     }   
 
@@ -119,6 +121,9 @@ function logged(data){
     const itemAssigning = $('#list-items--assigning');
     const itemWatch = $('#list-items--watch');
     const itemUpdate = $('#list-items--update');
+    const itemVoting = $('#list-items--votting');
+    const itemScore = $("#list-items--score");
+    const itemTeaching = $('#list-items--teaching');
 
     itemDecen.onclick = function(){
         display(containerDecen, true);
@@ -144,6 +149,22 @@ function logged(data){
         display(containerHome, false);
         display(containerUpdate, true);
     }
+    itemVoting.onclick = function(){
+        display(containerHome, false);
+        display(containerVoting, true);
+        
+        const tableClassList = $('.voting__table');
+        renderVoting(tableClassList, classLists, '12A1');
+    }
+    itemScore.onclick = function(){
+        display(containerHome, false);
+        display(containerScore, true);
+    }
+    itemTeaching.onclick = function(){
+        display(containerHome, false);
+        display(containerTeaching, true);
+    }
+
 
 
     // hiển thị những chức năng cho phép
@@ -199,17 +220,17 @@ function renderDecen(accounts, user){
                     <th class="users__infor-name">${account.fullname}</th>
                 </tr>
                 <tr>
-                    <td class="users__infor-position">Chức vụ: ${account.position}</td>
+                    <td class="users__infor-position">Chức vụ: ${getPosition(account.mscb)}</td>
                 </tr>
             </table>
             <div class="users__edit">
                 <label for="position" class="users__label">Chỉnh sửa: </label>
                 <select name="position" id="position" class="users__control">
                     <option value="">Lựa chọn chức vụ</option>
-                    <option value="Administrators">Administrators</option>
-                    <option value="teacher-subject">teacher-subject</option>
-                    <option value="teacher-homeroom">teacher-homeroom</option>
-                    <option value="headOfDepartment">headOfDepartment</option>
+                    <option value="Hiệu trưởng">Hiệu trưởng</option>
+                    <option value="Giáo viên bộ môn">Giáo viên bộ môn</option>
+                    <option value="Giáo viên chủ nhiệm">Giáo viên chủ nhiệm</option>
+                    <option value="Trưởng bộ môn">Trưởng bộ môn</option>
                 </select>
                 <button class="users__edt-btn">Lưu</button>
             </div>
@@ -228,13 +249,22 @@ function renderDecen(accounts, user){
         } 
     })
 }
+function getPosition(id){
+    const teacher =  teachers.filter(function(teacher){
+        return teacher.mscb === id;
+    })
+    return teacher[0].position;
+}
+
+
+
 function getSource(position){
     switch (position){
         case 'admin': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRg6mcF8ahzuZCEGb6q957TAaswNJwBq7shQ&usqp=CAU'; break;
-        case 'Administrators': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctA-NSI59h7c-JFVTUWhozUanBiB-rX0MMg&usqp=CAU'; break;
-        case 'teacher-subject': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCevtWkfWhNADi52wcGtc_16g6snPY9Je_wQ&usqp=CAU'; break;
-        case 'teacher-homeroom': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpP7IYDDV_TjtQY4gw78U39mgB04XWKkquIg&usqp=CAU'; break;
-        case 'headOfDepartment': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffZfEd5t5jg_-rbWccL7ao7N35wsZg0F8zg&usqp=CAU'; break;
+        case 'Hiệu trưởng': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctA-NSI59h7c-JFVTUWhozUanBiB-rX0MMg&usqp=CAU'; break;
+        case 'Giáo viên bộ môn': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCevtWkfWhNADi52wcGtc_16g6snPY9Je_wQ&usqp=CAU'; break;
+        case 'Giáo viên chủ nhiệm': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpP7IYDDV_TjtQY4gw78U39mgB04XWKkquIg&usqp=CAU'; break;
+        case 'Trưởng bộ môn': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffZfEd5t5jg_-rbWccL7ao7N35wsZg0F8zg&usqp=CAU'; break;
         default: return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRitJuxaJKiZ4CMpST04Nswn6UBEj-5hZMwbQ&usqp=CAU';
     }
 }
@@ -285,8 +315,11 @@ function renderClass(level, selectClass){
 }
 
 // Chọn lớp xem danh sách lớp
+
 watchBtnSave.onclick = function(){
-    renderClassList(classLists, watchClass.value);
+    
+    const tableClassList = $('.watch__container-classLists');
+    renderClassList(tableClassList, classLists, watchClass.value);
     watchContainer.classList.remove('display--none');
     watchHeading.innerHTML = `Danh sách lớp ${watchClass.value}`;
 }
@@ -296,9 +329,8 @@ saveSchadule.onclick = function(){
 }
 
 // Sử lý giao diện danh sách lớp
-const tableClassList = $('.watch__container-classLists');
 
-function renderClassList(classLists, className){
+function renderClassList(tableClassList, classLists, className){
     tableClassList.innerHTML = `
         <tr>
             <th>STT</th>
@@ -325,7 +357,6 @@ function renderClassList(classLists, className){
         })
     }
 }
-
 
 /* ------------------------------update danh sach lop----------------------------*/
 
@@ -458,7 +489,7 @@ function updateStudent(index, data, classList){
     student.name = data.name;
     student.birthDate = data.birthDate;
     student.gender = data.gender;
-    student.telephone = student.telephone;
+    student.telephone = data.telephone;
 }
 
 // render ra danh sách lớp để update
@@ -529,3 +560,50 @@ function renderNumber(){
         numberRow.firstChild.innerHTML = index+1;
     })
 }
+
+
+
+/*---------------------------------Phân công giảng dạy------------------------------------*/ 
+
+
+/*---------------------------------Đánh giá hạnh kiểm------------------------------------*/ 
+
+
+function renderVoting(tableClassList, classLists, className){
+    tableClassList.innerHTML = `
+        <tr>
+            <th>STT</th>
+            <th>Họ và tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Hạnh kiểm</th>
+        </tr>
+        `;  
+    var classList = classLists.filter(function(classList){
+        return classList.name === className;
+    })
+    if(classList[0]){
+        classList[0].students.forEach(function(student,index){
+            tableClassList.innerHTML += `
+            <tr>
+                <th class="classLists__number">${index+1}</th>
+                <td class="classLists__name">${student.name}</td>
+                <td class="classLists__birthDate">${student.birthDate}</td>
+                <td class="classLists__gender">${student.gender}</td>
+                <td class="classLists__rank">
+                <label for="voting__select"></label>
+                    <select name="voting__select" id="voting__select">
+                        <option value="">Loại</option>
+                        <option value="1">Giỏi</option>
+                        <option value="2">Khá</option>
+                        <option value="3">Trung bình</option>
+                        <option value="4">Yếu</option>
+                        <option value="5">Kém</option>
+                    </select>
+                </td>
+            </tr>
+            `
+        })
+    }
+}
+
