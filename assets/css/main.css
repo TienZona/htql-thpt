@@ -65,7 +65,7 @@
     width: 400px;
     height: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4) ;
-    border-radius: 6px;
+    border-radius: 12px;
     background-color: #fff;
 }
 .form__header {
@@ -73,9 +73,9 @@
     justify-content: center;
     align-items: center;
     height: 50px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    background-color: rgb(22, 117, 241);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-image: linear-gradient(180deg, rgba(3, 129, 247, 0.7),rgba(3, 129, 247, 1));
 }
 .form__header h3 {
     font-size: 24px;
@@ -115,18 +115,23 @@
     color: white;
     border: none;
     border-radius: 10px;
-    background-image: linear-gradient(90deg, rgb(81, 117, 235), rgb(12, 162, 248));
+    background-image: linear-gradient(90deg, rgb(81, 117, 235), rgb(12, 162, 248), rgb(81, 117, 235));
+    background-size: 200%;
+    transition: all .3s;
 }
+.form-submit:hover {
+    background-position: 100%;
+    transition: all .3s;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
 .form-group.invalid .form-control {
     border-color: #f33a58;
 }
 
 .form-group.invalid .form-message {
 color: #f33a58;
-}
-.form-submit:hover {
-    opacity: 0.9;
-    cursor: pointer;
 }
 .footer {
     /* position: absolute; */
@@ -307,7 +312,7 @@ color: #f33a58;
 .voting__navbar-classname {
     font-size: 12px;
     margin-top: 44px;
-    color: rgb(46, 43, 43);
+    color: rgb(81, 18, 199);
 }
 .teaching__navbar-list,
 .assigning__navbar-list,
@@ -356,16 +361,6 @@ color: #f33a58;
     background-color: #52e4fd;
     border-radius: 3px;
 }
-.schedule__navbar-btn {
-    width: 80px;
-    padding: 6 12px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgb(22, 71, 230);
-    color: #fff;
-    font-size: 16px;
-    margin-left: 20px;
-}
 .assigning__navbar-btn:hover,
 .schedule__navbar-btn:hover {
     cursor: pointer;
@@ -404,7 +399,7 @@ color: #f33a58;
     width: 800px;
 }
 .assigning__navbar {
-    width: 600px;
+    width: 620px;
 }
 .watch__navbar-list {
     position: absolute;
@@ -418,7 +413,7 @@ color: #f33a58;
     font-size: 16px;
     color: #000;
 }
-.watch__navbar-item-btn {
+.navbar-item-btn {
     width: 60px;
     height: 20px;
     margin: 5px 20px 0;
@@ -427,7 +422,7 @@ color: #f33a58;
     background-color: #4d27f7;
     color: #fff;
 }
-.watch__navbar-item-btn:hover {
+.navbar-item-btn:hover {
     cursor: pointer;
     background-color: #f33a87;
 }
