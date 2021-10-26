@@ -11,7 +11,7 @@ const accounts  = [
         name: 'HieuTruong',
         fullname: 'Thầy hiệu trưởng',
         password: '123456',
-        position: 'Hiệu trưởng'
+        position: 'Ban giám hiệu'
     },
     {
         mscb: 'CB002',
@@ -68,53 +68,68 @@ const teachers = [
     },
     {
         mscb: 'CB001',
-        fullname: 'Thầy hiệu trưởng',
+        fullname: 'Phan Văn Hậu',
         birthDate: '12/10/1970',
         gender: 'Nam',
-        position: 'Hiệu trưởng'
+        position: 'Ban giám hiệu'
     },
     {
         mscb: 'CB002',
-        fullname: 'Giáo viên bộ môn 1',
+        fullname: 'Trần Ánh Đào',
         birthDate: '12/10/1980',
         gender: 'Nữ',
         position: 'Giáo viên bộ môn'
     },
     {
         mscb: 'CB003',
-        fullname: 'Giáo viên bộ môn 2',
+        fullname: 'Nguyễn Thị Như Thảo',
         birthDate: '12/10/1980',
         gender: 'Nữ',
         position: 'Giáo viên bộ môn'
     },
     {
         mscb: 'CB004',
-        fullname: 'Giáo viên bộ môn 3',
+        fullname: 'Nguyễn Lệ Quyên',
         birthDate: '12/10/1980',
         gender: 'Nữ',
         position: 'Giáo viên bộ môn'
     },
     {
         mscb: 'CB005',
-        fullname: 'Giáo viên chủ nhiệm 1',
+        fullname: 'Mai Lê Như Hoa',
         birthDate: '12/10/1980',
         gender: 'Nữ',
         position: 'Giáo viên chủ nhiệm'
     },
     {
         mscb: 'CB006',
-        fullname: 'Giáo viên chủ nhiệm 2',
+        fullname: 'Đào Thị Anh Thư',
         birthDate: '12/10/1980',
         gender: 'Nữ',
         position: 'Giáo viên chủ nhiệm'
     },
     {
         mscb: 'CB007',
-        fullname: 'Trưởng bộ môn',
+        fullname: 'Dương Minh Dũng',
         birthDate: '12/10/1980',
-        gender: 'Nữ',
+        gender: 'Nam',
+        position: 'Trưởng bộ môn'
+    },
+    {
+        mscb: 'CB008',
+        fullname: 'Trần Công Văn',
+        birthDate: '12/10/1970',
+        gender: 'Nam',
+        position: 'Ban giám hiệu'
+    },
+    {
+        mscb: 'CB009',
+        fullname: 'Nguyễn Văn Toàn',
+        birthDate: '12/10/1980',
+        gender: 'Nam',
         position: 'Trưởng bộ môn'
     }
+    
 ]
 
 const classLists = [

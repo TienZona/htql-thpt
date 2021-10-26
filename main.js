@@ -128,7 +128,6 @@ function logged(data){
     itemDecen.onclick = function(){
         display(containerDecen, true);
         display(containerHome, false);
-        renderDecen(accounts, data);
     }
 
     itemSchedule.onclick = function(){
@@ -203,31 +202,46 @@ function logged(data){
 }
 
 
-/* ------------------------------Phân quyền hệ thống--------------------------------- */
+/* ------------------------------Phân quyền tài khoản--------------------------------- */
 
 const decentralization = $('#container__decen');
-const decenList = $('.decen__list');
+const decenList = $('#decen__list');
 
-// Xử lý giao diện phân quyền hệ thống
-function renderDecen(accounts, user){
-    const htmls = accounts.map(function(account, index){
-        const src = getSource(account.position);
-        return ((user.fullname === account.name) || (account.position === 'admin')) ? '' : `
+// Xử lý giao diện phân quyền tài khoản
+const decenBtn = $('.decen__navbar-item-btn');
+const selectPosition = $('#teaching__navbar-item-level');
+
+
+decenBtn.onclick = function(){
+    decenList.classList.add('decen__list');
+    renderDecen(selectPosition.value);
+}
+
+function renderDecen(position){
+    const list = teachers.filter(function(teacher){
+        return position === "Tất cả" ? true : teacher.position === position;
+    })
+    var htmls = list.map(function(teacher){
+        const src = getSource(teacher.position);
+        return `
         <div class="decen__list-users">
             <img class="users__img" src="${src}" alt="">
             <table class="users__infor">
                 <tr>
-                    <th class="users__infor-name">${account.fullname}</th>
+                    <th class="users__infor-name">${teacher.fullname}</th>
                 </tr>
                 <tr>
-                    <td class="users__infor-position">Chức vụ: ${getPosition(account.mscb)}</td>
+                    <td class="users__infor-id">MSCB: ${teacher.mscb}</td>
+                </tr>
+                <tr>
+                    <td class="users__infor-position">Quyền: ${getPosition(teacher.mscb)}</td>
                 </tr>
             </table>
             <div class="users__edit">
                 <label for="position" class="users__label">Chỉnh sửa: </label>
                 <select name="position" id="position" class="users__control">
-                    <option value="">Lựa chọn chức vụ</option>
-                    <option value="Hiệu trưởng">Hiệu trưởng</option>
+                    <option value="">Lựa chọn quyền</option>
+                    <option value="Ban giám hiệu">Ban giám hiệu</option>
                     <option value="Giáo viên bộ môn">Giáo viên bộ môn</option>
                     <option value="Giáo viên chủ nhiệm">Giáo viên chủ nhiệm</option>
                     <option value="Trưởng bộ môn">Trưởng bộ môn</option>
@@ -237,6 +251,8 @@ function renderDecen(accounts, user){
         </div>
         `
     })
+
+
     decenList.innerHTML = htmls.join('');
     const editBtns = $$('.users__edt-btn');
     Array.from(editBtns).forEach(function(editBtn,index){
@@ -244,8 +260,11 @@ function renderDecen(accounts, user){
             const position = this.parentElement.parentElement.querySelector('.users__infor-position');
             const valueEdit = this.parentElement.querySelector('.users__control').value;
             if(valueEdit != ''){
-                position.innerHTML = `Chức vụ: ${valueEdit}`;
+                position.innerHTML = `Quyền: ${valueEdit}`;
             }
+            const id = this.parentElement.parentElement.querySelector('.users__infor-id').outerHTML.substring(34, 39);
+            const teacher = getTeacher(id);
+            teacher.position = valueEdit;
         } 
     })
 }
@@ -256,15 +275,21 @@ function getPosition(id){
     return teacher[0].position;
 }
 
+function getTeacher(id){
+    const result = teachers.filter(function(teacher){
+        return teacher.mscb === id;
+    })
+    return result[0];
+}
 
 
 function getSource(position){
     switch (position){
         case 'admin': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRg6mcF8ahzuZCEGb6q957TAaswNJwBq7shQ&usqp=CAU'; break;
-        case 'Hiệu trưởng': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctA-NSI59h7c-JFVTUWhozUanBiB-rX0MMg&usqp=CAU'; break;
+        case 'Ban giám hiệu': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctA-NSI59h7c-JFVTUWhozUanBiB-rX0MMg&usqp=CAU'; break;
         case 'Giáo viên bộ môn': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCevtWkfWhNADi52wcGtc_16g6snPY9Je_wQ&usqp=CAU'; break;
         case 'Giáo viên chủ nhiệm': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpP7IYDDV_TjtQY4gw78U39mgB04XWKkquIg&usqp=CAU'; break;
-        case 'Trưởng bộ môn': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffZfEd5t5jg_-rbWccL7ao7N35wsZg0F8zg&usqp=CAU'; break;
+        case 'Trưởng bộ môn': return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRitJuxaJKiZ4CMpST04Nswn6UBEj-5hZMwbQ&usqp=CAU'; break;
         default: return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRitJuxaJKiZ4CMpST04Nswn6UBEj-5hZMwbQ&usqp=CAU';
     }
 }

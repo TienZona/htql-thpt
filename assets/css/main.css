@@ -191,6 +191,20 @@ color: #f33a58;
     border-radius: 3px;
 }
 
+.decen__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    width: 900px;
+    padding: 50px;
+    border: 2px solid blue;
+    border-radius: 4px;
+    background-color: rgba(82, 243, 189, 0.1);
+    /* background-image: linear-gradient(270deg,rgba(215, 228, 43, 0.3), rgba(104, 224, 214, 0.6)); */
+}
+
 .decen__list-users > table {
     margin: 0 40px;
     border: 2px solid rgb(247, 7, 247);
@@ -202,10 +216,11 @@ color: #f33a58;
     color: #fff;
     padding: 10px;
 }
+.users__infor-id,
 .users__infor-position {
     font-size: 14px;
     color: #000;
-    padding: 10px;
+    padding: 5px 10px;
 }
 .decen__list-users {
     display: flex;
@@ -285,7 +300,8 @@ color: #f33a58;
 .voting__navbar-heading,
 .assigning__navbar-heading,
 .watch__navbar-heading,
-.schedule__navbar-heading {
+.schedule__navbar-heading,
+.navbar-heading {
     position: absolute;
     top: 0;
     border-top-left-radius: 20px;
@@ -305,7 +321,8 @@ color: #f33a58;
 .voting__navbar-heading h1,
 .assigning__navbar-heading h1,
 .watch__navbar-heading h1,
-.schedule__navbar-heading h1{
+.schedule__navbar-heading h1,
+.navbar-heading h1{
     font-size: 20px;
     color: #fff;
 }
@@ -316,7 +333,8 @@ color: #f33a58;
 }
 .teaching__navbar-list,
 .assigning__navbar-list,
-.schedule__navbar-list {
+.schedule__navbar-list,
+.navbar-list {
     position: absolute;
     bottom: 15px;
     display: flex;
@@ -329,7 +347,8 @@ color: #f33a58;
 }
 .teaching__navbar-item,
 .assigning__navbar-item,
-.schedule__navbar-item {
+.schedule__navbar-item,
+.navbar-item {
     margin: 0 10px;
     display: flex;
     align-items: center;
@@ -337,7 +356,8 @@ color: #f33a58;
     
 }
 .teaching__navbar-item label,
-.assigning__navbar-item-lable {
+.assigning__navbar-item-lable,
+.navbar-item-lable {
     font-size: 14px;
     margin-right: 6px;
     color: #000;
@@ -369,7 +389,8 @@ color: #f33a58;
 .container__score,
 .container__voting,
 .container__update,
-.container__watch {
+.container__watch,
+.container__items {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -380,7 +401,8 @@ color: #f33a58;
 .schedule__navbar,
 .voting__navbar,
 .assigning__navbar,
-.watch__navbar {
+.watch__navbar,
+.navbar{
     position: relative;
     width: 400px;
     height: 100px;
@@ -620,7 +642,7 @@ color: #f33a58;
 }
 .score__container th,
 .assigning__container th {
-    border: 1px solid rgba(39, 5, 117, 0.3);
+    border: 1px solid rgba(46, 46, 49, 0.3);
 
 }
 
@@ -665,4 +687,9 @@ color: #f33a58;
 
 .assigning__container th .test{
     border: 1px solid red;
+}
+
+.teaching__container table td{
+    width: 100px;
+
 }
